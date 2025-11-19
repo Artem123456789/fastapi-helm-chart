@@ -20,7 +20,9 @@ spec:
         - name: api
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           ports:
-            - containerPort: 8000 
+            - containerPort: 8000
+          {{- if .Values.secrets.enabled }}
           envFrom:
             - secretRef:
-                name: {{ .Values.secretsName }}
+                name: {{ .Values.secrets.name }}
+          {{- end }}

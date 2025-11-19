@@ -13,6 +13,10 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+secrets:
+  enabled: false
+  name: ""
+
 service:
   type: ClusterIP
   port: 80
